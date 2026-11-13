@@ -191,11 +191,20 @@
   }
   /* lift very dark photos so captions stay readable */
   .band.dim img { filter: brightness(1.14) saturate(1.04); }
+  /* soft scrim behind band captions */
+  .band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(51,36,31,0.38), rgba(51,36,31,0.06) 42%, transparent 62%);
+    pointer-events: none;
+  }
   .band-caption {
     position: absolute;
     left: 50%;
     bottom: 1.4rem;
     transform: translateX(-50%);
+    z-index: 1;
     font-family: "Cormorant Garamond", Georgia, serif;
     font-style: italic;
     font-size: clamp(1rem, 2.4vw, 1.3rem);
